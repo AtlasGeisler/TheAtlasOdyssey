@@ -1,19 +1,27 @@
-title: The Atlas Odyssey
-description: The OpenClaw Founding Chronicle
-url: ""
-baseurl: "/atlas-odyssey"
-markdown: kramdown
-permalink: /:year/:month/:day/:title/
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+title: "The Atlas Odyssey"
+description: "The OpenClaw Founding Chronicle"
+theme: null
+remote_theme: just-the-docs/just-the-docs
+color_scheme: atlas
+url: "https://AtlasGeisler.github.io"
+baseurl: "/TheAtlasOdyssey"
+search_enabled: true
+heading_anchors: true
 collections:
-  pages:
+  entries:
     output: true
-    permalink: /:title/
+    permalink: /entries/:path/
 defaults:
   - scope:
       path: ""
-      type: posts
     values:
-      layout: post
+      layout: default
+  - scope:
+      path: "entries"
+      type: entries
+    values:
+      layout: entry
+      nav_order: 999
+aux_links:
+  "Atlas Odyssey on GitHub":
+    - "https://github.com/AtlasGeisler/TheAtlasOdyssey"

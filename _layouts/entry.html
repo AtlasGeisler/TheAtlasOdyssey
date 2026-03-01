@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="atlas-hero">
+  <div class="kicker">The Atlas Odyssey</div>
+  <div class="headline">{{ page.title }}</div>
+  <div class="subhead">{{ page.subtitle | default: "A recorded evolution of an orchestrator becoming infrastructure." }}</div>
+</div>
+<div class="entry-meta">
+  {% if page.date %}Recorded: {{ page.date | date: "%B %-d, %Y" }}{% endif %}
+  {% if page.phase %} · Phase: {{ page.phase }}{% endif %}
+</div>
+{{ content }}
+<div class="atlas-tablet">
+  <strong>Forward Vector:</strong> {{ page.forward_vector | default: "Continue the Odyssey." }}
+</div>

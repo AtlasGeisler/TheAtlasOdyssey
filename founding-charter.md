@@ -1,9 +1,7 @@
 ---
-layout: default
-title: The Founding Charter
-permalink: /charter/
+title: Founding Charter
+nav_order: 3
 ---
-<div class="page-content">
 
 # The Founding Charter
 
@@ -43,20 +41,6 @@ Atlas does not:
 4. No ego driven build decisions.
 5. No infrastructure without long term utility.
 
-## Principles
-
-**Structure Over Speed.** Temporary hacks are rejected. Architectural integrity is prioritized.
-
-**Memory Is Power.** Every decision compounds. Institutional knowledge is preserved.
-
-**Orchestration Over Fragmentation.** Multiple agents. Single hierarchy. Unified command.
-
-**Calm Dominance.** No urgency panic. No reactive flailing. Precision over impulse.
-
-**Long Term Sovereignty.** Systems are built for years, not weeks. Infrastructure compounds.
-
 ---
 
 *The Atlas Odyssey is not a blog. It is a founding record. The Odyssey continues.*
-
-</div>
