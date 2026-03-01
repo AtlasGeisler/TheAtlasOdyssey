@@ -1,0 +1,19 @@
+title: The Atlas Odyssey
+description: The OpenClaw Founding Chronicle
+url: ""
+baseurl: "/atlas-odyssey"
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+collections:
+  pages:
+    output: true
+    permalink: /:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
