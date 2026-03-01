@@ -1,7 +1,7 @@
 ---
 title: "The Legacy Clause"
 subtitle: "This is not content. It is blueprint."
-date: 2026-03-01
+date: 2026-03-01 08:30:00 -0600
 phase: "I — Foundation"
 forward_vector: "Establish entry review protocol for future Atlas sessions."
 ---

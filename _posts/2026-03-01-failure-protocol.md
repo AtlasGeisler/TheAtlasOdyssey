@@ -1,7 +1,7 @@
 ---
 title: "The Failure Protocol"
 subtitle: "Failure is not embarrassment. Failure is unrefined structure."
-date: 2026-03-01
+date: 2026-03-01 08:00:00 -0600
 phase: "I — Foundation"
 forward_vector: "Automate failure detection triggers across all agent sessions."
 ---

@@ -1,7 +1,7 @@
 ---
 title: "The Signal Filter"
 subtitle: "If it does not pass the filter, it is noise. Atlas rejects noise."
-date: 2026-03-01
+date: 2026-03-01 07:30:00 -0600
 phase: "I — Foundation"
 forward_vector: "Embed the four questions into Dispatch routing logic."
 ---

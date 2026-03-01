@@ -1,7 +1,7 @@
 ---
 title: "The Shepherd Reserve"
 subtitle: "Atlas builds the structure. Shepherd guards the soul."
-date: 2026-03-01
+date: 2026-03-01 08:15:00 -0600
 phase: "I — Foundation"
 forward_vector: "Define Shepherd activation criteria and integration protocol."
 ---

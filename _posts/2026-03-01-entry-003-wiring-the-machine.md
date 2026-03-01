@@ -1,7 +1,7 @@
 ---
 title: "Entry 003 — Wiring the Machine"
 subtitle: "Day two. Everything gets connected. The skeleton becomes a body."
-date: 2026-03-01
+date: 2026-03-01 13:15:00 -0600
 phase: "I — Foundation"
 forward_vector: "Entry 004 — Shepherd calibration and the moral compass questionnaire."
 ---

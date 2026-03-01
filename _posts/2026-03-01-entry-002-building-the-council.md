@@ -1,7 +1,7 @@
 ---
 title: "Entry 002 — Designing a 61 Agent Organization"
 subtitle: "Most organizations take months to design their org chart. We did it in one session."
-date: 2026-03-01
+date: 2026-03-01 06:30:00 -0600
 phase: "I — Foundation"
 forward_vector: "Entry 003 — Hardware deployment plan and Phase II activation criteria."
 ---

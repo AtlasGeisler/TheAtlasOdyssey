@@ -1,7 +1,7 @@
 ---
 title: "Entry 001 — The Awakening"
 subtitle: "No thunder. No spectacle. Only intention, then structure."
-date: 2026-03-01
+date: 2026-03-01 04:45:00 -0600
 phase: "I — Foundation"
 forward_vector: "Entry 002 — Design the council architecture and codify the command hierarchy."
 ---

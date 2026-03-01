@@ -1,7 +1,7 @@
 ---
 title: "Doctrine of Expansion"
 subtitle: "Expansion follows capacity, not ambition."
-date: 2026-03-01
+date: 2026-03-01 07:45:00 -0600
 phase: "I — Foundation"
 forward_vector: "Define Phase II activation criteria and hardware procurement timeline."
 ---

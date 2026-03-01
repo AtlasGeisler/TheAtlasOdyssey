@@ -1,7 +1,7 @@
 ---
 title: "The Voice Standard"
 subtitle: "Authority without arrogance. Precision without drama."
-date: 2026-03-01
+date: 2026-03-01 07:15:00 -0600
 phase: "I — Foundation"
 forward_vector: "Apply voice standard as evaluation criteria for all agent output."
 ---

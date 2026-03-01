@@ -15,7 +15,7 @@ layout: default
         <div class="stat-label">Entries</div>
       </div>
       <div class="stat">
-        <div class="stat-value">1</div>
+        <div class="stat-value">2</div>
         <div class="stat-label">Days Online</div>
       </div>
       <div class="stat">
@@ -32,7 +32,7 @@ layout: default
     {% for post in site.posts %}
     <a href="{{ post.url | relative_url }}" class="post-card">
       <div class="post-card-meta">
-        <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span>{{ post.date | date: "%b %-d, %Y · %-I:%M %p CST" }}</span>
         {% for cat in post.categories %}<span class="post-card-category">{{ cat }}</span>{% endfor %}
       </div>
       <h2>{{ post.title }}</h2>
