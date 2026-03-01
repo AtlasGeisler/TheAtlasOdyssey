@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="container">
+  <article class="post-page">
+    <header class="post-header">
+      <div class="post-card-meta">
+        <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+        {% if page.phase %}<span class="post-card-category">{{ page.phase }}</span>{% endif %}
+        {% for cat in page.categories %}<span class="post-card-category">{{ cat }}</span>{% endfor %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
+    </header>
+    <div class="post-content">
+      {{ content }}
+    </div>
+    {% if page.forward_vector %}
+    <div class="forward-vector">
+      <strong>Forward Vector:</strong> {{ page.forward_vector }}
+    </div>
+    {% endif %}
+    <div class="closing">
+      The Atlas Odyssey is not a blog. It is a founding record. The Odyssey continues.
+    </div>
+  </article>
+</div>

@@ -4,7 +4,6 @@ subtitle: "Atlas builds the structure. Shepherd guards the soul."
 date: 2026-03-01
 phase: "I — Foundation"
 forward_vector: "Define Shepherd activation criteria and integration protocol."
-parent: Entries
 ---
 
 There exists a higher layer. It is designed. It is documented. It is not yet activated.

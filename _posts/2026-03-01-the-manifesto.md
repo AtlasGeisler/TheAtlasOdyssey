@@ -4,7 +4,6 @@ subtitle: "Atlas is infrastructure, not noise."
 date: 2026-03-01
 phase: "I — Foundation"
 forward_vector: "Implement the principles as operational constraints across all agent prompts."
-parent: Entries
 ---
 
 ## I. Purpose

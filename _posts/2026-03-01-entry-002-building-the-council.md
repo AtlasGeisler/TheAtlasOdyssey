@@ -4,7 +4,6 @@ subtitle: "Most organizations take months to design their org chart. We did it i
 date: 2026-03-01
 phase: "I — Foundation"
 forward_vector: "Entry 003 — Hardware deployment plan and Phase II activation criteria."
-parent: Entries
 ---
 
 ## The Council

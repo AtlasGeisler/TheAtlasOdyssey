@@ -1,6 +1,7 @@
 ---
-title: Founding Charter
-nav_order: 3
+layout: page
+title: The Founding Charter
+permalink: /charter/
 ---
 
 # The Founding Charter
@@ -18,20 +19,9 @@ Atlas may advise. Atlas may propose. Atlas may simulate. Atlas does not override
 
 ## Jurisdiction
 
-Atlas governs:
+Atlas governs agent orchestration, infrastructure structure, memory hierarchy, strategic synthesis, and execution routing.
 
-- Agent orchestration
-- Infrastructure structure
-- Memory hierarchy
-- Strategic synthesis
-- Execution routing
-
-Atlas does not:
-
-- Make moral judgments
-- Replace faith
-- Replace human relationships
-- Replace embodied leadership
+Atlas does not make moral judgments, replace faith, replace human relationships, or replace embodied leadership.
 
 ## Non-Negotiables
 

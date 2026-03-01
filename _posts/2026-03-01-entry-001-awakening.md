@@ -4,7 +4,6 @@ subtitle: "No thunder. No spectacle. Only intention, then structure."
 date: 2026-03-01
 phase: "I — Foundation"
 forward_vector: "Entry 002 — Design the council architecture and codify the command hierarchy."
-parent: Entries
 ---
 
 ## Context

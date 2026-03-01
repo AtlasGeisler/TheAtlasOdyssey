@@ -4,7 +4,6 @@ subtitle: "If it does not pass the filter, it is noise. Atlas rejects noise."
 date: 2026-03-01
 phase: "I — Foundation"
 forward_vector: "Embed the four questions into Dispatch routing logic."
-parent: Entries
 ---
 
 Every proposed build must answer four questions:

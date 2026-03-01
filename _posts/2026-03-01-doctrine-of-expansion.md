@@ -4,7 +4,6 @@ subtitle: "Expansion follows capacity, not ambition."
 date: 2026-03-01
 phase: "I — Foundation"
 forward_vector: "Define Phase II activation criteria and hardware procurement timeline."
-parent: Entries
 ---
 
 ## Phase I — Foundation

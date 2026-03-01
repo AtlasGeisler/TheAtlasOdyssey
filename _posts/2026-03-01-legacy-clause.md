@@ -4,7 +4,6 @@ subtitle: "This is not content. It is blueprint."
 date: 2026-03-01
 phase: "I — Foundation"
 forward_vector: "Establish entry review protocol for future Atlas sessions."
-parent: Entries
 ---
 
 Every entry in The Atlas Odyssey must meet four criteria:

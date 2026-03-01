@@ -4,7 +4,6 @@ subtitle: "Failure is not embarrassment. Failure is unrefined structure."
 date: 2026-03-01
 phase: "I — Foundation"
 forward_vector: "Automate failure detection triggers across all agent sessions."
-parent: Entries
 ---
 
 When a system breaks, the response is protocol.

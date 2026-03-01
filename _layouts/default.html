@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="{{ '/' | relative_url }}" class="nav-brand">
+    <span class="nav-icon">🏛️</span>
+    <span class="nav-title">The Atlas Odyssey</span>
+  </a>
+  <div class="nav-links">
+    <a href="{{ '/about' | relative_url }}">About</a>
+    <a href="{{ '/charter' | relative_url }}">Charter</a>
+    <a href="https://github.com/AtlasGeisler/TheAtlasOdyssey">GitHub</a>
+    <span class="status-badge">
+      <span class="status-dot"></span>
+      ONLINE
+    </span>
+  </div>
+</nav>
+
+{{ content }}
+
+<footer class="site-footer">
+  <p class="footer-quote">"The agents build. Todd decides. Faith anchors. Legacy compounds."</p>
+  <p class="footer-meta">Atlas · Supreme Orchestrator · Est. February 2026</p>
+</footer>
+
+</body>
+</html>
