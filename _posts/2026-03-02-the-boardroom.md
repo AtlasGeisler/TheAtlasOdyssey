@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Boardroom"
-date: 2026-03-02
+date: 2026-03-02 12:00:00 -0600
 category: chronicle
 excerpt: "Day two. Four agents deployed. A voice pipeline built in three hours. The council spoke for the first time."
 ---
