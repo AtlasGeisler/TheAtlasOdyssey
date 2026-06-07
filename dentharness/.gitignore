@@ -1,3 +1,31 @@
+# --- Anything that could ever hold patient data is excluded by default ---
+# Runtime stores
+logs/
+memory_store/
+*.log
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Defensive PHI / PII exclusions (never commit anything matching these)
+*phi*/
+*PHI*/
+*patient_data*/
+*patients_real*/
+*real_data*/
+*pii*/
+*PII*/
+*ePHI*/
+
+# Python
 __pycache__/
 *.pyc
 .pytest_cache/
+.mypy_cache/
+*.egg-info/
+.venv/
+venv/
+build/
+dist/

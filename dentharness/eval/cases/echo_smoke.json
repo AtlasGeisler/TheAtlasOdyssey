@@ -1,0 +1,6 @@
+{
+  "name": "skeleton calls a tool and returns a result",
+  "prompt": "please echo the word hello",
+  "expect_tool": "echo",
+  "expect_answer_contains": "Tool result"
+}

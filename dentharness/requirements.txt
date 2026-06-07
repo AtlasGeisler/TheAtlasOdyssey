@@ -1,6 +1,8 @@
-# Core harness has no runtime dependencies — standard library only.
-# Dev / test:
-pytest>=8.0
+# Core runtime
+PyYAML>=6.0
 
-# Optional, only when wiring the real model client:
+# Real model client (optional: the built-in mock provider needs nothing)
 # anthropic>=0.40
+
+# Dev / test
+pytest>=8.0

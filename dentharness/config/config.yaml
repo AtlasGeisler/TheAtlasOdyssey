@@ -1,0 +1,17 @@
+# The model is a single swappable parameter (Principle 7).
+# Switch providers by editing this file. Nothing else changes.
+model:
+  provider: mock          # mock | anthropic
+  name: claude-opus-4-8   # used when provider = anthropic
+  max_tokens: 1024
+  temperature: 0
+
+loop:
+  max_turns: 8
+
+# Reference knowledge and runtime stores live on the file system (Principle 3).
+paths:
+  knowledge: knowledge
+  synthetic_data: data/synthetic
+  logs: logs
+  memory: memory_store

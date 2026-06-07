@@ -1,0 +1,21 @@
+{
+  "_note": "Synthetic, fictional data only. No real patient information.",
+  "patients": [
+    {
+      "id": "P1",
+      "first_name": "Ada",
+      "last_name": "Lovelace",
+      "date_of_birth": "1990-12-10",
+      "phone": "555-0101",
+      "email": "ada@example.com"
+    },
+    {
+      "id": "P2",
+      "first_name": "Grace",
+      "last_name": "Hopper",
+      "date_of_birth": "1985-12-09",
+      "phone": "555-0102",
+      "email": "grace@example.com"
+    }
+  ]
+}
