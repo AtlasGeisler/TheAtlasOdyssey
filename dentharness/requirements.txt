@@ -1,0 +1,6 @@
+# Core harness has no runtime dependencies — standard library only.
+# Dev / test:
+pytest>=8.0
+
+# Optional, only when wiring the real model client:
+# anthropic>=0.40
