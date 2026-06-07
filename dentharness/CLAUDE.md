@@ -39,6 +39,22 @@ The harness separates two kinds of rules and must always keep them separate:
 This separation is required. Do not move a hard rule into a description, and do
 not rely on a description for anything that must not happen.
 
+The four hard rules, enforced in code under `src/dental_harness/guardrails/`
+and expressed as data in `policy.yaml`, are: PHI egress control, the
+clinical-advice gate, scope enforcement (allowlist, default deny), and the
+human-approval gate (outbound and state-changing actions are held until a
+person approves). See `GUARDRAILS.md` for the full map.
+
+### No tool may bypass the guardrail layer
+
+No tool may be added to this harness unless every call to it routes through the
+guardrail enforcement entry point, `GuardrailEngine.evaluate`, before the
+tool's callback runs. The agent loop already enforces this for every tool in
+`loop.py`. When adding a tool: register it through the normal path, add its
+action to `policy.yaml` (allowlist plus any outbound, state-changing, or PHI
+attributes), and never call a tool callback directly around the engine. A tool
+that can act without passing this check does not ship.
+
 ## Synthetic data only
 
 No PHI and no real systems at this stage. Synthetic, fictional data only until

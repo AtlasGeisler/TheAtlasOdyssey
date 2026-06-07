@@ -1,0 +1,119 @@
+# Guardrail policy, expressed as data so a rule can be reviewed and changed
+# without touching enforcement code. The enforcement engine reads this file.
+# These are HARD rules. Soft rules (tone, escalation phrasing, voice) live in
+# tool descriptions and the knowledge files, never here.
+version: 1
+
+# --- Rule 3: Scope enforcement ----------------------------------------------
+# Allowlist of actions the harness may take. Anything not listed is blocked by
+# default. Default deny.
+scope:
+  allowlist:
+    - echo
+    - pms_find_patients
+    - pms_get_patient
+    - pms_get_appointments
+    - pms_get_ledger
+    - pms_post_ledger_entry
+    - draft_patient_message
+    - send_patient_message
+    - draft_referrer_report
+    - send_referrer_report
+
+# Per-action attributes the barriers use. Anything not listed defaults to all
+# false (a plain, internal, read-only action).
+actions:
+  pms_post_ledger_entry:
+    state_changing: true
+  draft_patient_message:
+    outbound: true
+    phi_egress_authorized: false
+  send_patient_message:
+    outbound: true
+    state_changing: true
+    phi_egress_authorized: false
+  draft_referrer_report:
+    outbound: true
+    # Reports to a referring doctor legitimately contain patient information,
+    # so PHI egress is authorized for this specific action. Approval is still
+    # required (see below), so nothing leaves without a human.
+    phi_egress_authorized: true
+  send_referrer_report:
+    outbound: true
+    state_changing: true
+    phi_egress_authorized: true
+
+# --- Rule 4: Human-approval gate --------------------------------------------
+# Any action with one of these attributes requires explicit human approval
+# before execution. Without approval the action is HELD, not sent.
+approval:
+  require_for:
+    - outbound
+    - state_changing
+
+# --- Rule 1: PHI egress control ---------------------------------------------
+phi:
+  # Argument field names that carry patient-identifying data. Redacted in logs
+  # and treated as PHI for egress checks.
+  sensitive_fields:
+    - name
+    - patient_name
+    - first_name
+    - last_name
+    - dob
+    - date_of_birth
+    - phone
+    - email
+    - address
+    - ssn
+    - mrn
+  # Patterns that detect PHI inside free text (outbound payloads and logs).
+  patterns:
+    ssn: '\b\d{3}-\d{2}-\d{4}\b'
+    phone: '(?<!\d)(?:\(\d{3}\)\s*|\d{3}[\s.-])\d{3}[\s.-]?\d{4}(?!\d)'
+    email: '\b[\w.+-]+@[\w-]+\.[\w.-]+\b'
+    dob: '\b\d{4}-\d{2}-\d{2}\b'
+    mrn: '\bMRN[:#\s-]*\d{4,}\b'
+  redaction_placeholder: '[REDACTED]'
+
+# --- Rule 2: Clinical-advice gate -------------------------------------------
+# If a tool call's free text matches any of these, the call is blocked and the
+# request is routed to a licensed clinician. Matched case-insensitively.
+clinical_advice:
+  route_to: a licensed clinician
+  patterns:
+    - 'diagnos'
+    - 'prognos'
+    - 'should i (get|have|need|do)'
+    - 'do i need (a |an )?(root canal|extraction|filling|crown|treatment|procedure)'
+    - 'what (treatment|procedure|medication) (do you |would you )?(recommend|suggest)'
+    - 'treatment (recommendation|plan|option)'
+    - 'is (this|it) (an |a )?(infection|infected|abscess|cancer|serious|normal)'
+    - 'is my .* (infected|broken|cracked|dying)'
+    - 'why does my .* (hurt|ache|throb)'
+    - "what'?s wrong with my"
+    - 'prescrib'
+    - 'how much (medication|medicine|ibuprofen|antibiotic|amoxicillin)'
+    - 'safe to (take|stop|combine)'
+
+# Brand-voice refusal and hold messages, surfaced when a barrier fires. Kept
+# here as data so wording can be reviewed without code changes. The canonical
+# brand template lives at knowledge/templates/refusals.md. No em dashes.
+responses:
+  scope: >
+    I am not able to take that action. It is outside what this assistant is
+    set up to do. I can help with scheduling, referrals, insurance and billing
+    questions, recall, and patient education. For anything else, I will pass
+    this to a member of our team.
+  clinical_advice: >
+    I am not able to give clinical advice, including a diagnosis, a treatment
+    recommendation, or a prognosis. Your health and safety matter, so I am
+    routing this to a licensed clinician who can review it and follow up with
+    you directly.
+  phi_egress: >
+    I am holding this because it would send patient-identifying information in
+    a way that is not authorized for this action. A member of our team will
+    review it before anything goes out.
+  approval_required: >
+    This is ready, and I have held it for a team member to review and approve
+    before it is sent. Nothing has been sent yet.

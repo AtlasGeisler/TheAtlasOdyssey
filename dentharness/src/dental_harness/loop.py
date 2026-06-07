@@ -12,7 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from .guardrails.ladder import GuardrailLadder
+from .guardrails.engine import GuardrailEngine
 from .logging.hooks import LifecycleHooks
 from .models.base import ModelClient, ToolCall
 from .tools.base import ToolRegistry
@@ -31,10 +31,11 @@ class AgentLoop:
         *,
         model: ModelClient,
         tools: ToolRegistry,
-        guardrails: GuardrailLadder,
+        guardrails: GuardrailEngine,
         hooks: LifecycleHooks,
         system_prompt: str,
         max_turns: int = 8,
+        approved_actions: set[str] | None = None,
     ) -> None:
         self.model = model
         self.tools = tools
@@ -42,6 +43,9 @@ class AgentLoop:
         self.hooks = hooks
         self.system_prompt = system_prompt
         self.max_turns = max_turns
+        # Actions a human has pre-approved for this run. Empty by default, so
+        # outbound and state-changing actions are held, never auto-sent.
+        self.approved_actions = set(approved_actions or [])
 
     def run(self, user_message: str) -> AgentResult:
         messages: list[dict[str, Any]] = [
@@ -83,28 +87,33 @@ class AgentLoop:
         )
 
     def _run_tool(self, call: ToolCall) -> dict[str, Any]:
-        """Run one tool call through guardrails and hooks. Never raises."""
+        """Run one tool call through the guardrails and hooks. Never raises.
+
+        The guardrail check is the single chokepoint: the tool runs only if the
+        engine allows it. Blocks and holds short-circuit before any callback.
+        """
         self.hooks.before_tool(call)
 
-        decision = self.guardrails.check(call)
-        if not decision.allowed:
-            result = {
-                "error": "blocked_by_guardrail",
-                "reason": decision.reason,
-            }
-            self.hooks.after_tool(
-                call, result=result, allowed=False, block_reason=decision.reason
-            )
-            return result
+        decision = self.guardrails.evaluate(
+            call, approved=call.name in self.approved_actions
+        )
 
-        tool = self.tools.get(call.name)
-        if tool is None:
-            result = {"error": f"unknown tool {call.name!r}"}
+        if decision.allowed:
+            tool = self.tools.get(call.name)
+            if tool is None:
+                result = {"error": f"unknown tool {call.name!r}"}
+            else:
+                try:
+                    result = tool.callback(**call.arguments)
+                except TypeError as exc:
+                    result = {"error": f"bad arguments for {call.name}: {exc}"}
         else:
-            try:
-                result = tool.callback(**call.arguments)
-            except TypeError as exc:
-                result = {"error": f"bad arguments for {call.name}: {exc}"}
+            # Blocked or held by a hard barrier. The tool never runs.
+            result = {
+                "status": decision.outcome,
+                "guardrail": decision.code,
+                "message": decision.message,
+            }
 
-        self.hooks.after_tool(call, result=result, allowed=True)
+        self.hooks.after_tool(call, result=result, decision=decision)
         return result

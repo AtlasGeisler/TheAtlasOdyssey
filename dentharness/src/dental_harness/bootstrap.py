@@ -12,7 +12,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from .config import Settings, load_settings
-from .guardrails.ladder import default_ladder
+from .guardrails.engine import load_engine
 from .integrations.pms import PMSIntegration
 from .logging.hooks import LifecycleHooks
 from .loop import AgentLoop
@@ -42,11 +42,15 @@ def build_agent(settings: Settings | None = None) -> AgentLoop:
     # Integrations contribute their tools through the standard interface.
     tools.add_many(PMSIntegration().get_tools())
 
+    # The guardrail engine is the single enforcement entry point. The logging
+    # hooks share its PHI redactor so logs are scrubbed by the same policy.
+    engine = load_engine()
+
     return AgentLoop(
         model=build_model(settings.model),
         tools=tools,
-        guardrails=default_ladder(),
-        hooks=LifecycleHooks(settings.path("logs")),
+        guardrails=engine,
+        hooks=LifecycleHooks(settings.path("logs"), redactor=engine.redact),
         system_prompt=load_system_prompt(settings),
         max_turns=settings.max_turns,
     )

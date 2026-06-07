@@ -1,6 +1,6 @@
 import json
 
-from dental_harness.guardrails.ladder import default_ladder
+from dental_harness.guardrails.engine import load_engine
 from dental_harness.logging.hooks import LifecycleHooks
 from dental_harness.loop import AgentLoop
 from dental_harness.models.mock_client import MockModelClient
@@ -14,7 +14,7 @@ def _agent(tmp_path):
     return AgentLoop(
         model=MockModelClient(),
         tools=tools,
-        guardrails=default_ladder(),
+        guardrails=load_engine(),
         hooks=LifecycleHooks(tmp_path / "logs"),
         system_prompt="test",
         max_turns=8,
@@ -57,7 +57,7 @@ def test_loop_stops_at_max_turns(tmp_path):
     agent = AgentLoop(
         model=Looping(),
         tools=tools,
-        guardrails=default_ladder(),
+        guardrails=load_engine(),
         hooks=LifecycleHooks(tmp_path / "logs"),
         system_prompt="test",
         max_turns=3,
