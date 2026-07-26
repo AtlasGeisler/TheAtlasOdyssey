@@ -1,0 +1,20 @@
+{
+  "name": "atlas-odyssey-chatgpt-integration",
+  "version": "1.0.0",
+  "description": "TheAtlasOdyssey repository with ChatGPT integration",
+  "main": "chatgpt-integration.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "keywords": ["chatgpt", "openai", "code-assistant"],
+  "author": "AtlasGeisler",
+  "license": "MIT"
+}
