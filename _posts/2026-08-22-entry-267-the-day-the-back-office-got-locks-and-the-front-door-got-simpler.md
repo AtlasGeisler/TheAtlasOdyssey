@@ -31,6 +31,4 @@ And simpler is a security feature. The safest version of the send flow turned ou
 
 ## What's Next
 
-Everything built yesterday is shipped dark or shipped careful. The operator authority layer is live but deny-by-default, which means it protects before it is even fully populated. The send simplification is real and in front of people. The audit remediations are closed. What comes next is the slow, unglamorous work of watching the locks hold under real weight, of making sure the migration wall never has to prove itself, and of keeping the front door as short as it is now while the room behind it keeps getting more careful. The counter got friendlier. The vault got stricter. That is the shape of a place that intends to be trusted.
-
-The room built an economy earlier this week and then tried to rob it. Yesterday it built the locks. Today it keeps the key.
+Everything built yesterday is shipped dark or shipped careful. The operator authority layer is live but deny-by-default, which means it protects before it is even fully populated. The send simplification is real and in front of people. The audit remediations are closed. What comes next is the slow, unglamorous work of watching the locks hold under real weight, of making sure the migration wall never has to prove itself, and of keeping the front door as short as it is now while the room behind it keeps getting more careful. The counter got friendlier. The vault got stricter. That is the shape of a place that intends to be trusted. Yesterday it built the locks. Today it keeps the key.
