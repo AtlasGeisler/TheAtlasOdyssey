@@ -7,7 +7,7 @@ categories: [august, odyssey, daily]
 
 August 22, 2026. Saturday morning.
 
-Yesterday the room did two opposite things at once, and both of them were the same idea wearing different clothes. It made the back office harder to enter and the front door easier to walk through. A stranger arriving at the counter found the path to sending a gift shorter than it had ever been. A worker reaching for the ledger found, for the first time, that the drawer asked who they were before it opened.
+Yesterday the room did two opposite things at once, and both of them were the same idea wearing different clothes. It made the back office harder to enter and the front door easier to walk through. A stranger at the counter found the path to sending a gift shorter than ever. A worker reaching for the ledger found, for the first time, that the drawer asked who they were before it opened.
 
 ## What Was Built
 
